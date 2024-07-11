@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Service</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <div class="nav container">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <a href="#" class="logo">Car<span>Point</span></a>
+            <ul class="navbar">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#cars">Cars</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#parts">Service</a></li>
+                <li><a href="#blog">Our blog</a></li>
+            </ul>
+            <i class='bx bx-search' id="search-icon"></i>
+            <div class="search-box container">
+                <input type="search" names="" id="" placeholder="Search here...">
+            </div>
+        </div>
+    </header>
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>We have Everything <br>Your <span>Car</span> Need</h1>
+            <p>Audi AG is a German automotive <br>manufacturer of luxury<br> vehicles headquartered in <br> Ingolstadt, Bavaria, Germany.</p>
+            <a href="#" class="btn">Discover Now</a>
+        </div>
+    </section>
+    <section class="colors" id="colors">
+        <div class="heading">
+            <h2>Pick Your Preference Color</h2>
+        </div>
+        <div class="color-options">
+            <div class="color-option default" onclick="changeTheme('default')"></div>
+            <div class="color-option magenta" onclick="changeTheme('magenta')"></div>
+            <div class="color-option green" onclick="changeTheme('green')"></div>
+        </div>
+        
+    </section>
+    <section class="cars" id="cars">
+        <div class="heading">
+            <span>All cars</span>
+            <h2>We have all types cars</h2>
+            <p>there are various vehicles that you can buy.</p>
+        </div>
+        <div class="cars-container container">
+            <div class="box">
+                <img src="img/car1.jpg" alt="">
+                <h2>Porche Car</h2>
+            </div>
+            <div class="box">
+                <img src="img/car2.jpg" alt="">
+                <h2>Audi Car</h2>
+            </div>
+            <div class="box">
+                <img src="img/car3.jpg" alt="">
+                <h2>Audi Car</h2>
+            </div>
+            <div class="box">
+                <img src="img/car4.jpg" alt="">
+                <h2>Audi Car</h2>
+            </div>
+            <div class="box">
+                <img src="img/car5.jpg" alt="">
+                <h2>Audi Car</h2>
+            </div>
+            <div class="box">
+                <img src="img/car6.jpg" alt="">
+                <h2>Mustang Car</h2>
+            </div>
+        </div>
+    </section>
+    <section class="about container" id="about">
+        <div class="about-img">
+            <img src="img/about.png" alt="">
+        </div>
+        <div class="about-text">
+            <span>About Us</span>
+            <h2>Cheap Prices With <br> Quality Cars</h2>
+            <p>if you buy one car, You can get this car for free</p>
+
+        </div>
+    </section>
+
+    <section class="parts" id="parts">
+        <div class="heading">
+            <span>What we offer</span> 
+            <h2>Our Car Is Always Excellent</h2>
+            <p>there are many spare parts original and services that you can see</p>
+        </div>
+        <div class="parts-container container">
+            <div class="box" data-price="567.44">
+                <img src="img/part1.png" alt="">
+                <h3>Auto Spare Parts</h3>
+                <span>RM 567.44 </span>
+                <i class='bx bxs-star'>(6 Reviews)</i>
+                <button onclick="addToCart('Auto Spare Parts Service', 567.44)">Add to Cart</button>
+            </div>
+            <div class="box" data-price="440.67">
+                <img src="img/part2.png" alt="">
+                <h3>Car Piston</h3>
+                <span>RM 440.67 </span>
+                <i class='bx bxs-star'>(10 Reviews)</i>
+                <button onclick="addToCart('Car Piston Service', 440.67)">Add to Cart</button>
+            </div>
+            <div class="box" data-price="10000.01">
+                <img src="img/part3.png" alt="">
+                <h3>Car Service</h3>
+                <span>RM 10,000.01</span>
+                <i class='bx bxs-star'>(90 Reviews)</i>
+                <button onclick="addToCart('Car Service', 10000.01)">Add to Cart</button>
+            </div>
+            <div class="box" data-price="200.98">
+                <img src="img/part4.png" alt="">
+                <h3>Engine Oil Filter</h3>
+                <span>RM 200.98 </span>
+                <i class='bx bxs-star'>(12 Reviews)</i>
+                <button onclick="addToCart('Engine Oil Filter Service', 200.98)">Add to Cart</button>
+            </div>
+            <div class="box" data-price="875.23">
+                <img src="img/part5.png" alt="">
+                <h3>Alternator</h3>
+                <span>RM 875.23 </span>
+                <i class='bx bxs-star'>(1000 Reviews)</i>
+                <button onclick="addToCart('Alternator Service', 875.23)">Add to Cart</button>
+            </div>
+            <div class="box" data-price="700.53">
+                <img src="img/part6.png" alt="">
+                <h3>Tyre Changing</h3>
+                <span>RM 700.53 </span>
+                <i class='bx bxs-star'>(5 Reviews)</i>
+                <button onclick="addToCart('Tyre Changing Service', 700.53)">Add to Cart</button>
+            </div>
+        </div>
+        <div id="cart">
+            <h2>Cart</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: RM<span id="total-price">0.00</span></p>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+        <div id="undo-message" class="undo-message">
+            <p>Item removed. <button onclick="undoRemove()">Undo</button> <span id="countdown"></span></p>
+        </div>
+    </section>
+<section class="staffs" id="staffs">
+    <div class="heading">
+        <h2>Our Respected Staff</h2>
+    </div>
+    <div class="slider-container">
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <div class="slider">
+            <div class="slide">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="img/staff1.jpg" alt="Profile Picture">
+                    </div>
+                    <div class="profile-info">
+                        <h2>Muizzuddin</h2>
+                        <p>Automotive Technician</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="img/staff2.jpg" alt="Profile Picture">
+                    </div>
+                    <div class="profile-info">
+                        <h2>Azrul Mustaqqim</h2>
+                        <p>Service Advisor</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="img/staff3.jpg" alt="Profile Picture">
+                    </div>
+                    <div class="profile-info">
+                        <h2>Adlina</h2>
+                        <p>Shop Manager</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="img/staff4.jpg" alt="Profile Picture">
+                    </div>
+                    <div class="profile-info">
+                        <h2>Syakila</h2>
+                        <p>Parts Specialist</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="img/staff5.jpg" alt="Profile Picture">
+                    </div>
+                    <div class="profile-info">
+                        <h2>Shafiqah</h2>
+                        <p>Customer Service Representative</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+</section>
+    <section class="blog" id="blog">
+        <div class="heading">
+            <span>Our Blog & News</span> 
+            <h2>Our Blog Content</h2>
+            <p>enjoy our boring blog</p>
+        </div>
+        <div class="blog-container container">
+            <div class="box">
+                <img src="img/car1.jpg" alt="">
+                <span>Feb 14 2019</span>
+                <h3>How To Get Excident When drive</h3>
+                <p>Distracted Driving. One of the top causes of car accidents can be blamed on distracted driving.</p>
+                <a href="#" class="blog-btn">Read More<i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+        <div class="box">
+            <img src="img/car2.jpg" alt="">
+            <span>Jan 06 2021</span>
+            <h3>How To Show Off a Luxury Car To a Friend</h3>
+            <p>The desire for aesthetic opulence speaks to a psychological need for validation and recognition.</p>
+            <a href="#" class="blog-btn">Read More<i class='bx bx-right-arrow-alt'></i></a>
+        </div>
+        <div class="box">
+            <img src="img/car3.jpg" alt="">
+            <span>Jul 11 2023</span>
+            <h3>How To Get Perfect Car At Low Price</h3>
+            <p>Go steal and break cars that are easy to use and carry</p>
+            <a href="#" class="blog-btn">Read More<i class='bx bx-right-arrow-alt'></i></a>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="footer-container container">
+            <div class="footer-box">
+                <a  class="logo">Car<span>Point</span></a>
+                <div class="social">
+                    <a href="#"><i class='bx bxl-meta' ></i></a>
+                    <a href="#"><i class='bx bxl-instagram' ></i></a>
+                    <a href="#"><i class='bx bxl-tiktok' ></i></a>
+                    <a href="#"><i class='bx bxl-youtube' ></i></a>
+                </div>
+            </div>
+            <div class="footer-box">
+                <h3>Page</h3>
+                <a href="#">Home</a>
+                <a href="#">Cars</a>
+                <a href="#">Parts</a>
+                <a href="#">Sales</a>
+            </div>
+            <div class="footer-box">
+                <h3>Legal</h3>
+                <a href="#">Privacy</a>
+                <a href="#">Refund Policy</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <p>Malaysian</p>
+                <p>South Korean</p>
+                <p>Japan</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="copyright">
+        <p> &copy carPoint Company All Right Reserved</p>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
